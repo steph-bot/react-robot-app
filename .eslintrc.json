@@ -1,0 +1,88 @@
+{
+    "parser": "@typescript-eslint/parser", // Specifies the ESLint parser
+    "plugins": [
+        "@typescript-eslint",
+        "react"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended", // Uses the recommended rules from the @typescript-eslint/eslint-plugin
+        "prettier/@typescript-eslint", // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
+        "plugin:prettier/recommended", // Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
+        "plugin:react/recommended"
+    ],
+    "settings": {
+        "react": {
+            "version": "16.8.6"
+        }
+    },
+    "rules": {
+        "consistent-return": 0,
+        "max-len": 0,
+        "no-undef": 0,
+        "no-console": 2,
+        "no-param-reassign": 0,
+        "no-nested-ternary": 0,
+        "no-shadow-restricted-names": 0,
+        "no-bitwise": 0,
+        "no-restricted-globals": [
+            0,
+            "isNaN"
+        ],
+        "no-underscore-dangle": 0,
+        "prefer-destructuring": 0,
+        "class-methods-use-this": 0,
+        "import/no-extraneous-dependencies": 0,
+        "jsx-a11y/label-has-associated-control": 0,
+        "jsx-a11y/label-has-for": 0,
+        "jsx-a11y/anchor-is-valid": 0,
+        "jsx-a11y/click-events-have-key-events": 0,
+        "jsx-a11y/no-noninteractive-element-interactions": 0,
+        "jsx-a11y/no-static-element-interactions": 0,
+        "react/prop-types": 0,
+        "react/no-multi-comp": 0,
+        "react/destructuring-assignment": 0,
+        "react/jsx-filename-extension": [
+            2,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ],
+        "react/no-deprecated": 1,
+        "react/no-array-index-key": 0,
+        "react/forbid-prop-types": 0,
+        "react/require-default-props": 0,
+        "react/jsx-wrap-multilines": 0,
+        "react/no-access-state-in-setstate": 0,
+        "react/jsx-indent": 0,
+        "react/jsx-indent-props": 0,
+        "react/jsx-closing-bracket-location": 0,
+        "react/sort-comp": 2,
+        "react/no-string-refs": 2,
+        "react/display-name": [
+            0,
+            {
+                "ignoreTranspilerName": 0
+            }
+        ],
+        "react/jsx-key": 1,
+        "@typescript-eslint/explicit-module-boundary-types": 0,
+        "@typescript-eslint/no-explicit-any": 0
+    },
+    "overrides": [
+        {
+            "files": [
+                "**/**/*.ts",
+                "**/**/*.tsx"
+            ],
+            "rules": {
+                "@typescript-eslint/explicit-module-boundary-types": 1,
+                "@typescript-eslint/no-explicit-any": 1
+            }
+        }
+    ]
+}
