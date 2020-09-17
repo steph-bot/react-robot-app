@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import Hello from './components/Hello';
+import Card from './components/Card';
 import * as serviceWorker from './serviceWorker';
+import 'tachyons';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Hello />
+    {/* // Create greeting prop */}
+    <div>
+      <Card />
+      <Card />
+      <Card />
+    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );
