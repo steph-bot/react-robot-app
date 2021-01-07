@@ -1,4 +1,4 @@
-This project is published at https://steph-bot.github.io/react-robot-app/
+This project is published here: https://steph-bot.github.io/react-robot-app/
 
 ## Available Scripts
 
