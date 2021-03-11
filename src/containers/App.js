@@ -8,6 +8,7 @@ import {
   useParams
 } from "react-router-dom";
 import Robots from './Robots'
+import RealEstate from './RealEstate.tsx'
 
 export default function App() {
   return (
@@ -23,6 +24,9 @@ export default function App() {
           <li>
             <Link to="/topics">Topics</Link>
           </li>
+          <li>
+            <Link to="/realestate">Real Estate</Link>
+          </li>
         </ul>
 
         <Switch>
@@ -31,6 +35,9 @@ export default function App() {
           </Route>
           <Route path="/topics">
             <Topics />
+          </Route>
+          <Route path="/realestate">
+            <RealEstate />
           </Route>
           <Route path="/">
             <Home />
