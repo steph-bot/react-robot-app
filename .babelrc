@@ -1,0 +1,71 @@
+{
+    "presets": [
+        "@babel/react",
+        [
+            "@babel/preset-env",
+            {
+                "modules": false
+            }
+        ]
+    ],
+    "env": {
+        "test": {
+            "presets": [
+                [
+                    "@babel/env",
+                    {
+                        "targets": {
+                            "node": "current"
+                        }
+                    }
+                ],
+                "@babel/react",
+                "@babel/preset-typescript"
+            ],
+            "plugins": [
+                "@babel/plugin-proposal-class-properties",
+                "@babel/plugin-proposal-export-namespace-from",
+                "@babel/plugin-proposal-export-default-from"
+            ]
+        },
+        "development": {
+            "plugins": [
+                "@babel/plugin-proposal-class-properties",
+                "@babel/plugin-proposal-export-namespace-from",
+                [
+                    "import",
+                    {
+                        "libraryName": "antd",
+                        "style": "css"
+                    }
+                ]
+            ]
+        },
+        "local": {
+            "plugins": [
+                "@babel/plugin-proposal-class-properties",
+                "@babel/plugin-proposal-export-namespace-from",
+                [
+                    "import",
+                    {
+                        "libraryName": "antd",
+                        "style": "css"
+                    }
+                ]
+            ]
+        },
+        "production": {
+            "plugins": [
+                "@babel/plugin-proposal-class-properties",
+                "@babel/plugin-proposal-export-namespace-from",
+                [
+                    "import",
+                    {
+                        "libraryName": "antd",
+                        "style": "css"
+                    }
+                ]
+            ]
+        }
+    }
+}
