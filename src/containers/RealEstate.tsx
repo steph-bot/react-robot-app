@@ -4,6 +4,9 @@ import SearchBox from '../components/SearchBox'
 import Scroll from '../components/Scroll'
 import ErrorBoundary from '../components/ErrorBoundary'
 import '../assets/styles/App.css'
+import {useSelector, useDispatch} from 'react-redux';
+import {increment, decrement} from '../redux/actions';
+
 
 interface RealEstateProps {
   // Truly guessing at types here!
@@ -12,6 +15,10 @@ interface RealEstateProps {
 interface RealEstateState {
   robots: any;
   searchField: string;
+  counter?: number;
+  isLogged?: boolean;
+
+
 }
 
 class RealEstate extends Component<
@@ -22,8 +29,12 @@ class RealEstate extends Component<
     super(props) // calls the constructor of Component
     this.state = {
       robots: [],
-      searchField: ''
+      searchField: '',
+      counter: ''
     }
+    const counter = useSelector(state => state.counter);
+  const isLogged = useSelector(state => state.isLogged);
+  const dispatch = useDispatch();
   }
 
   componentDidMount() {
@@ -43,12 +54,17 @@ class RealEstate extends Component<
     const filteredRobots = robots.filter((robot: { name: string; }) => {
       return robot.name.toLowerCase().includes(searchField.toLowerCase());
     });
+    
     if (robots.length === 0) {
       return <h1>Loading</h1>
     } else {
       return (
       <div className='tc'>
         <h1 className='f2'>Real Estate</h1>
+        <body> Counter: {counter}</body>
+        <button onClick={() => dispatch(increment())}>+</button>
+        <button onClick={() => dispatch(decrement())}>-</button>
+        <button onClick={() => dispatch(increment(5))}>+5</button>
         <SearchBox searchChange={this.onSearchChange} />
         <Scroll>
           <ErrorBoundary>

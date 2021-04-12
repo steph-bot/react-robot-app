@@ -22,7 +22,7 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
+    "test": "jest --verbose",
     "coverage": "yarn test --coverage",
     "eject": "react-scripts eject"
   },

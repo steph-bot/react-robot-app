@@ -10,7 +10,7 @@ module.exports = {
   coverageDirectory: 'coverage',
   coverageReporters: ['html', 'text', 'text-summary', 'json-summary'],
   setupFilesAfterEnv: ['<rootDir>/tests/setupTests.js'],
-  snapshotSerializers: ['enzyme-to-json/serializer'],
+//   snapshotSerializers: ['enzyme-to-json/serializer'],
   moduleDirectories: ['node_modules', 'src'],
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}'],

@@ -18,12 +18,14 @@ export default function App() {
   const dispatch = useDispatch();
   return (
     <Router>
-      <div>
-        <h1> Counter: {counter}</h1>
+      <div className='tc'>
+        <h1>Stephanie</h1>
+        <body> Counter: {counter}</body>
         <button onClick={() => dispatch(increment())}>+</button>
         <button onClick={() => dispatch(decrement())}>-</button>
         <button onClick={() => dispatch(increment(5))}>+5</button>
         {isLogged ? <h3>You are logged in</h3> : <h3> You are LOGGED OUT</h3>}
+        <div className='tl'>
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -38,6 +40,7 @@ export default function App() {
             <Link to="/realestate">Real Estate</Link>
           </li>
         </ul>
+        </div>
 
         <Switch>
           <Route path="/robots">
