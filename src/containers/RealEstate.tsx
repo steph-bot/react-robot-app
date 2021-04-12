@@ -4,7 +4,7 @@ import SearchBox from '../components/SearchBox'
 import Scroll from '../components/Scroll'
 import ErrorBoundary from '../components/ErrorBoundary'
 import '../assets/styles/App.css'
-import {useSelector, useDispatch} from 'react-redux';
+import {connect} from 'react-redux';
 import {increment, decrement} from '../redux/actions';
 
 
@@ -30,27 +30,31 @@ class RealEstate extends Component<
     this.state = {
       robots: [],
       searchField: '',
-      counter: ''
+      counter: 0
     }
-    const counter = useSelector(state => state.counter);
-  const isLogged = useSelector(state => state.isLogged);
-  const dispatch = useDispatch();
+    // const counter = useSelector(state => this.state.counter);
+    
+    // const isLogged = useSelector(state => this.state.isLogged);
   }
+    // const dispatch = useDispatch();
+
 
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(users => {
       this.setState({ robots: users })
+
     })
   }
+
 
   onSearchChange = (event: { target: { value: any; }; }) => {
     this.setState({ searchField: event.target.value});
   }
 
   render() {
-    const { robots, searchField } = this.state;
+    const { robots, searchField, counter } = this.state;
     const filteredRobots = robots.filter((robot: { name: string; }) => {
       return robot.name.toLowerCase().includes(searchField.toLowerCase());
     });
@@ -62,9 +66,9 @@ class RealEstate extends Component<
       <div className='tc'>
         <h1 className='f2'>Real Estate</h1>
         <body> Counter: {counter}</body>
-        <button onClick={() => dispatch(increment())}>+</button>
-        <button onClick={() => dispatch(decrement())}>-</button>
-        <button onClick={() => dispatch(increment(5))}>+5</button>
+        <button onClick={() => (increment())}>+</button>
+        <button onClick={() => (decrement())}>-</button>
+        <button onClick={() => (increment(5))}>+5</button>
         <SearchBox searchChange={this.onSearchChange} />
         <Scroll>
           <ErrorBoundary>
@@ -77,4 +81,19 @@ class RealEstate extends Component<
   }
 }
 
-export default RealEstate;
+const mapStateToProps = state => ({
+  counter: state.counter
+});
+
+const mapDispatchToProps = () => {
+  return {
+    increment, decrement
+  };
+};
+
+// export default RealEstate;
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps()
+)(RealEstate);
